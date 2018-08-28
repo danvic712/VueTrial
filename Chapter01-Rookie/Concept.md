@@ -37,4 +37,5 @@
 + MVVM：Model-View-ViewModel</br>
     MVVM的核心是ViewModel，它提供了对于Model和ViewModel的双向数据绑定，通过ViewModel连接View和Model,确保视图与数据的一致性,而这个过程是框架自动完成的,无需手动干预。
     ![MVVM中各模块间联系](https://i.imgur.com/EwnZ4lJ.png)
+    
     由Ugaya40 - 自己的作品，CC BY-SA 3.0，https://commons.wikimedia.org/w/index.php?curid=19056842
