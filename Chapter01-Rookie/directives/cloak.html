@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>内置指令（1）</title>
+    <title> v-cloak </title>
     <style>
         [v-cloak] {
             display: none;
@@ -20,8 +20,6 @@
      -->
     <div id="app">
         <p v-cloak>{{msg}}</p>
-        <p v-text="msg2"></p>
-        <p v-html="msg3"></p>
     </div>
 
     <script src="../lib/vue.js"></script>
@@ -30,9 +28,7 @@
         new Vue({
             el: '#app',
             data: {
-                msg: 'hello world',
-                msg2: 'hello vue',
-                msg3: '<h5>I want to learn vue.js</h5>'
+                msg: 'hello world'
             }
         });
     </script>
