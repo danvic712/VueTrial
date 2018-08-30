@@ -11,18 +11,20 @@
 
 <body>
     <div id="app">
+        <h3>{{ msg }}</h3>
 
+        <input type="text" name="" id="" v-model:value="msg">
     </div>
 
     <script>
         var vm = new Vue({
             el: '#app',
             data: {
+                msg: '你好啊，程十六'
             },
             methods: {
             }
         });
-
     </script>
 </body>
 
