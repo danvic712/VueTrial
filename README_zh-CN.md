@@ -4,8 +4,12 @@ VueTrial这个项目是我记录自己学习Vue.js过程中的一个仓储，详
 ## 文件解释
 + Chapter01-Rookie: 学习Vue.js第一阶段中的相关文件
     - directives: Vue的内置指令的使用方法
+        - bind.html: v-bind 在 vue.js 中的使用方法
         - cloak.html: v-cloak 在 vue.js 中的使用方法
         - content.html: v-text、v-html 在 vue.js 中的使用方法
+        - cycle.html: v-for 在 vue.js 中的使用方法
+        - model.html: v-model 在 vue.js 中的使用方法
+        - show.html: v-if 和 v-show 在 vue.js 中的使用方法
     - lib: javascript类库文件存放地址
         - vue.js: vue.js 源码文件
     - src: 一些有用的文件
