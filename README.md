@@ -10,6 +10,7 @@ VueTrial is a repository which record the process of learning Vue.js of mine.
         - cycle.html: a html file to show how to use v-for directive in vue.js
         - model.html: a html file to show how to use v-model directive in vue.js
         - show.html: a html file to show how to use v-if and v-show directive in vue.js
+        - event.html: a html file to show how to use event modifier in vue.js
     - lib: contains some javascript lib files
         - vue.js: a vue.js source file
     - src: contains some useful files

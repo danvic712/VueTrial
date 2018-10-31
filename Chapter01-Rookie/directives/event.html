@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> event modifier </title>
+    <script src="../lib/vue.js"></script>
+    <style>
+        .divDefault{
+            background-color: aquamarine;
+            width: 200px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <div id="div1" class="divDefault" @click="divHandlerClick">
+             <input type="button" value="点击" @click="btnHandlerClick" /> -->
+            <!-- 1、阻止事件冒泡 -->
+            <!-- <input type="button" value="点击" @click.stop="btnHandlerClick" />
+        </div> -->
+
+        <!-- <a href="http://www.baidu.com" @click="aHandlerClick">链接跳转</a> -->
+        
+        <!-- 2、阻止默认事件 -->
+        <!-- <a href="http://www.baidu.com" @click.prevent="aHandlerClick">链接跳转</a> -->
+
+        <!-- 3、使用事件捕获机制 -->
+        <!-- <div id="div1" class="divDefault" @click.capture="divHandlerClick">
+            <input type="button" value="点击" @click="btnHandlerClick" />
+        </div> -->
+
+        <!-- 4、只有在 event.target 是当前元素自身时触发处理函数 -->
+        <!-- <div id="div1" class="divDefault" @click.self="divHandlerClick">
+            <input type="button" value="点击" @click="btnHandlerClick" />
+        </div> -->
+
+        <!-- 5、事件只执行一次 -->
+        <input type="button" value="点击" @click.once="btnHandlerClick" />
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {
+                divHandlerClick() {
+                    alert('我是div的点击事件！')
+                },
+                btnHandlerClick() {
+                    alert('我是button的点击事件')
+                },
+                aHandlerClick() {
+                    alert('我是a标签的点击事件')
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

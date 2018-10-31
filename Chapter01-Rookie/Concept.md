@@ -8,12 +8,13 @@
 
 ## 如何使用Vue.js
 + 直接使用 script 标签引入
-
-     `<script  src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>`
-     
+    ```javascript
+	<script  src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	```
      PS：这里可以在Vue的官网上下载好js文件后使用标签引入，也可以使用cdn的形式引入。
 + 使用 Vue-Cli 构建单页应用
-    ```
+    ```javascript
+	//Vue-Cli 2.X 版本
     //1、全局安装Vue-Cli
     npm install -g vue-cli
     //2、进入创建项目目录下
@@ -23,6 +24,22 @@
     //5、下载项目引用的包
     npm install
     //6、运行项目
+    npm run dev
+    ```
+
+	```javascript
+	//Vue-Cli 3.X 版本
+    //1、卸载旧版本的Vue-Cli
+    npm uninstall vue-cli -g
+    //2、全局安装Vue-Cli 3.X
+	npm install -g @vue/cli
+	//3、进入创建项目目录下
+    //4、创建项目
+    vue create projectname // 使用网站页面创建：vue ui
+    //5、进入项目目录下
+    //6、下载项目引用的包
+    npm install
+    //7、运行项目
     npm run dev
     ```
 
