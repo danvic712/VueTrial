@@ -11,6 +11,7 @@ VueTrial这个项目是我记录自己学习Vue.js过程中的一个仓储，详
         - model.html: v-model 在 vue.js 中的使用方法
         - show.html: v-if 和 v-show 在 vue.js 中的使用方法
         - event.html: 事件修饰符在 vue.js 中的使用
+        - style.html: 在 vue.js 中为元素设定样式
     - lib: javascript类库文件存放地址
         - vue.js: vue.js 源码文件
     - src: 一些有用的文件

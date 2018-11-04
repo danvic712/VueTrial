@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>set style</title>
+    <script src="../lib/vue.js"></script>
+    <style>
+        .textRed {
+            color: red
+        }
+
+        .textAquamarine {
+            color: aquamarine
+        }
+
+        .textItalic {
+            font-style: italic
+        }
+
+        .textThin {
+            font-weight: 200
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- 一： 使用 class 属性-->
+        <!-- 1、使用数组的方式绑定样式 -->
+        <!-- <h2 :class="['textRed','textThin']">我是标题标题标题标题标题标题啊啊啊啊~~~</h2>
+        <h2 :class="[textRed,textThin]">我是标题标题标题标题标题标题啊啊啊啊~~~</h2> -->
+        <!-- <h2 :class="[flag?'textAquamarine':'textRed','textThin']">我是标题标题标题标题标题标题啊啊啊啊~~~</h2> -->
+        <!-- <h2 :class="[{'textAquamarine':flag,'textRed':!flag},'textThin']">我是标题标题标题标题标题标题啊啊啊啊~~~</h2> -->
+
+        <!-- 2、使用对象的方式绑定样式 -->
+        <!-- <h2 :class="{textAquamarine:flag,textThin:flag}">我是标题标题标题标题标题标题啊啊啊啊~~~</h2> -->
+        <!-- <h2 :class="styleObject">我是标题标题标题标题标题标题啊啊啊啊~~~</h2> -->
+
+
+        <!-- 二： 使用 style 属性-->
+        <!-- 1、使用对象的方式绑定样式 -->
+        <!-- <h2 :style="{color:'aquamarine','font-weight': '200'}">我是标题标题标题标题标题标题啊啊啊啊~~~</h2> -->
+        <!-- <h2 :style="styleObjectV2">我是标题标题标题标题标题标题啊啊啊啊~~~</h2> -->
+
+        <!-- 2、使用数组的方式绑定样式 -->
+        <h2 :style="[baseStyle,additionStyle]">我是标题标题标题标题标题标题啊啊啊啊~~~</h2>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                flag: true,
+                textRed: 'textRed',
+                textThin: 'textThin',
+                styleObject: {
+                    textAquamarine: true,
+                    textThin: true,
+                },
+                styleObjectV2: {
+                    color: 'aquamarine',
+                    'font-weight': '200',
+                },
+                baseStyle: {
+                    color: 'aquamarine'
+                },
+                additionStyle: {
+                    'font-weight': '200'
+                }
+            },
+            methods: {}
+        })
+    </script>
+</body>
+
+</html>
