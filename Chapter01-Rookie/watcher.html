@@ -6,17 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Computed Properties and Watchers</title>
-    <script src="/lib/vue.js"></script>
+    <script src="../lib/vue.js"></script>
 </head>
 
 <body>
-    <div id="app"></div>
+    <div id="app">
+        <!-- 1、计算属性 -->
+        <!-- 输入的值：<input type="text" v-model="message"><br /> -->
+        <!-- 反转的值：{{reversedMessage}}<br /> -->
+
+        <!-- 2、监听器 -->
+        用户姓名：<input type="text" v-model="User.name"><br />
+    </div>
 
     <script>
         var vm = new Vue({
             el: '#app',
-            data: {},
-            methods: {}
+            data: {
+                message: '',
+                User: {
+                    name: 'zhangsan',
+                    gender: 'male'
+                }
+            },
+            computed: {
+                // reversedMessage: function () {
+                //     //这里的 this 指向当前的 vm 实例
+                //     return this.message.split('').reverse().join('')
+                // }
+                reversedMessage: {
+                    get: function () {
+                        return this.message.split('').reverse().join('')
+                    },
+                    set: function (value) {
+                        this.message = value.split('').reverse().join('')
+                    }
+                }
+            },
+            watch: {
+                //1、回调为未创建的方法
+                'message': function (newValue, oldValue) {
+                    console.log(`新值：${newValue} --------- 旧值：${oldValue}`)
+                },
+                //2、回调为已创建好的方法
+                'message': 'recording',
+                //3、回调为对象
+                'User': {
+                    handler: function (newValue, oldValue) {
+                        console.log(`对象记录：新值：${newValue.name} --------- 旧值：${oldValue.name}`)
+                    },
+                    deep: false//未设置或设置为 false 时则无法监听到对象中属性的改变
+                }
+            },
+            methods: {
+                recording: function (newValue, oldValue) {
+                    console.log(`method记录：新值：${newValue} --------- 旧值：${oldValue}`)
+                }
+            }
         })
     </script>
 </body>
