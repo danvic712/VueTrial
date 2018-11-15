@@ -12,9 +12,10 @@ VueTrial这个项目是我记录自己学习Vue.js过程中的一个仓储，详
         - show.html: v-if 和 v-show 在 vue.js 中的使用方法
      - modifiers: vue 中的事件处理机制
         - event.html: 事件修饰符在 vue.js 中的使用
-        - vue.js: vue.js 源码文件
     - src: 一些有用的文件
         - MVVMPattern.png: MVVM中各模块间的联系
+    - lib: 引用的 js 文件
+        - vue.js: vue.js 源码文件
     - Concept.md: 一些用到的概念 
     - start.html: 如何使用 Vue 的简单入门
     - style.html: 在 vue.js 中为元素设定样式

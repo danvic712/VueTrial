@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> keyboard modifiers </title>
+    <script src="../../lib/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <label>姓名：</label>
+        <!-- 一、按键修饰符 -->
+        <!-- 1、内置按键修饰符 -->
+        <!-- <input id="name" type="text" v-model:value="name" @keyup.enter="log"> -->
+        <!-- 1、自定义按键修饰符 -->
+        <!-- <input id="name" type="text" v-model:value="name" @keyup.ctrl.f2="logF2"> -->
+
+        <!-- 二、系统修饰符 -->
+        <!-- 1、单独使用系统修饰符 -->
+        <!-- <input id="name" type="text" v-model:value="name" @keyup.ctrl="log"> -->
+        <!-- 2、与按键修饰符一起使用 -->
+        <!-- <input id="name" type="text" v-model:value="name" @keyup.ctrl="log"> -->
+        <!-- 3、限制系统修饰符 -->
+        <!-- <input id="name" type="text" v-model:value="name" @keyup.ctrl.exact="log"> -->
+
+        <!-- 三、鼠标修饰符 -->
+        <input id="name" type="text" v-model:value="name">
+        <button @click.right="log">log</button>
+    </div>
+
+    <script>
+        //通过 keyCode 自定义按键修饰符
+        Vue.config.keyCodes.f2 = 113
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                name: ''
+            },
+            methods: {
+                log() {
+                    console.log(`name:${this.name}`);
+                },
+                logF2() {
+                    console.log(`name:${this.name} --- 通过 F2 按键获得`);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -12,9 +12,11 @@ VueTrial is a repository which record the process of learning Vue.js of mine.
         - show.html: a html file to show how to use v-if and v-show directive in vue.js
     - modifiers: some file about event handlers in vue.js
         - event.html: a html file to show how to use event modifier in vue.js
-        - vue.js: a vue.js source file
+        - keyboard.html: a html file to show how to use keyboard modifier in vue.js
     - src: contains some useful files
         - MVVMPattern.png: a image which show the connection between the MVVP modules
+    - lib: contains reference js file
+        - vue.js: a vue.js source file
     - Concept.md: some used concepts 
     - start.html: a example file about use vue.js
     - style.html: a html file to show how to set element style in vue.js
