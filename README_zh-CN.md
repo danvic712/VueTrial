@@ -17,6 +17,7 @@ VueTrial这个项目是我记录自己学习Vue.js过程中的一个仓储，详
     - lib: 引用的 js 文件
         - vue.js: vue.js 源码文件
     - Concept.md: 一些用到的概念 
+    - hocks.html: vue 中生命周期函数的使用
     - start.html: 如何使用 Vue 的简单入门
     - style.html: 在 vue.js 中为元素设定样式
     - watcher.html: vue.js 中计算属性与监听器的使用

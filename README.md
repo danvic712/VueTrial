@@ -18,6 +18,7 @@ VueTrial is a repository which record the process of learning Vue.js of mine.
     - lib: contains reference js file
         - vue.js: a vue.js source file
     - Concept.md: some used concepts 
+    - hocks.html: a html file about how to use the vue instance lifecycle hocks
     - start.html: a example file about use vue.js
     - style.html: a html file to show how to set element style in vue.js
     - watcher.html: a html file to show computed properties and watchers in vue.js
