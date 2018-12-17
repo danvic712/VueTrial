@@ -2,7 +2,7 @@
 VueTrial这个项目是我记录自己学习Vue.js过程中的一个仓储，详细的学习目录可以到 [Vue.js 进阶打怪合集](https://lanesra712.github.io/2018/08/27/Vue-Overview/ "Vue.js 进阶打怪合集") 中进行查看，博客园博客也会同步更新，博客园博客地址： [https://www.cnblogs.com/danvic712/](https://www.cnblogs.com/danvic712/ "墨墨墨墨小宇") 
 
 ## 文件解释
-+ Chapter01-Rookie: 学习Vue.js第一阶段中的相关文件
++ Chapter01-Rookie
     - directives: vue中指令的使用方法
         - bind.html: v-bind 在 vue.js 中的使用方法
         - cloak.html: v-cloak 在 vue.js 中的使用方法
@@ -21,6 +21,9 @@ VueTrial这个项目是我记录自己学习Vue.js过程中的一个仓储，详
     - start.html: 如何使用 Vue 的简单入门
     - style.html: 在 vue.js 中为元素设定样式
     - watcher.html: vue.js 中计算属性与监听器的使用
++ Chapter02-Bronze
+    - component: vue 中组件的相关使用
+        - concept.html: 组件的一些基础概念以及如何去使用组件
 + lib: javascript类库文件存放地址
 + README_zh-CN.md: 中文 readme 文件 
 + README.md: readme 文件

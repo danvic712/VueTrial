@@ -2,7 +2,7 @@
 VueTrial is a repository which record the process of learning Vue.js of mine.
 
 ## File Description
-+ Chapter01-Rookie: some files about first stage of learning vue.js
++ Chapter01-Rookie
     - directives: some files about how to use vue's built-in directives and custom directives
         - bind.html: a html file to show how to use v-bind directive in vue.js
         - cloak.html: a html file to show how to use v-cloak directive in vue.js
@@ -22,6 +22,9 @@ VueTrial is a repository which record the process of learning Vue.js of mine.
     - start.html: a example file about use vue.js
     - style.html: a html file to show how to set element style in vue.js
     - watcher.html: a html file to show computed properties and watchers in vue.js
++ Chapter02-Bronze
+    - component: some files to show how to use component in vue.js
+        - concept.html: a html file about some basic concept about component and how to use it
 + lib: contains some javascript lib files
 + README_zh-CN.md: a Chinese readme file 
 + README.md: readme file
