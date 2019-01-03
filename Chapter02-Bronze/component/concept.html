@@ -11,13 +11,65 @@
 
 <body>
     <div id="app">
-
+        <!-- <com></com> -->
+        <!-- <com2></com2>
+        <com3></com3> -->
+        <!-- <com4></com4> -->
+        <simple-com></simple-com>
     </div>
 
+    <div id="app2">
+        <simple-com></simple-com>
+    </div>
+
+    <template id="tmpl">
+        <div>
+            <h3>这是使用 Vue.extend 创建的组件，啊啊啊啊啊啊</h3>
+            <h4>呜呜呜呜</h4>
+        </div>
+    </template>
+
+    <template id="local">
+        <h4>我是局部注册的组件啊啊啊啊啊啊啊啊</h4>
+    </template>
+
+
     <script>
+        //1、使用 Vue.extend 构建模板对象
+        var comElement = Vue.extend({
+            template: '<h3>这是使用 Vue.extend 创建的组件，啊啊啊啊啊啊</h3>'
+        })
+
+        //2.1、使用 Vue.component 注册 通过 Vue.extend 构建全局组件
+        Vue.component('com', comElement)
+
+        //2.2、使用 Vue.component 注册全局组件
+        Vue.component('com2', Vue.extend({
+            template: '<h3>这是直接使用 Vue.component 创建的组件，啊啊啊啊啊啊</h3>'
+        }))
+
+        Vue.component('com3', {
+            template: '<h3>这是直接使用 Vue.component 创建的组件，啊啊啊啊啊啊</h3>'
+        })
+
+        Vue.component('com4', {
+            template: '#tmpl'
+        })
+
+
         var vm = new Vue({
             el: '#app',
             data: {}
+        });
+
+        var vm2 = new Vue({
+            el: '#app2',
+            data: {},
+            components: {
+                'simple-com': {
+                    template: '#local'
+                }
+            }
         });
     </script>
 </body>
