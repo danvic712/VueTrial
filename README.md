@@ -24,7 +24,8 @@ VueTrial is a repository which record the process of learning Vue.js of mine.
     - watcher.html: a html file to show computed properties and watchers in vue.js
 + Chapter02-Bronze
     - component: some files to show how to use component in vue.js
-        - concept.html: a html file about some basic concept about component and how to use it
+        - concept.html: a html file about some basic concept of component and how to use it
+        - advance.html: a html file about some advance concept of component and how to use it
 + lib: contains some javascript lib files
 + README_zh-CN.md: a Chinese readme file 
 + README.md: readme file

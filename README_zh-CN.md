@@ -24,6 +24,7 @@ VueTrial这个项目是我记录自己学习Vue.js过程中的一个仓储，详
 + Chapter02-Bronze
     - component: vue 中组件的相关使用
         - concept.html: 组件的一些基础概念以及如何去使用组件
+        - advance.html: 组件的一些属性、方法的使用
 + lib: javascript类库文件存放地址
 + README_zh-CN.md: 中文 readme 文件 
 + README.md: readme 文件
