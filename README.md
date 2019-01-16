@@ -16,7 +16,9 @@ VueTrial is a repository which record the process of learning Vue.js of mine.
     - src: contains some useful files
         - MVVMPattern.png: a image which show the connection between the MVVP modules
     - lib: contains reference js file
+        - axios.js: a HTTP lib based on promise
         - vue.js: a vue.js source file
+        - vue-router.js: a official router source file for Vue.js
     - Concept.md: some used concepts 
     - hocks.html: a html file about how to use the vue instance lifecycle hocks
     - start.html: a example file about use vue.js

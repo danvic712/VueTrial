@@ -15,7 +15,9 @@ VueTrial这个项目是我记录自己学习Vue.js过程中的一个仓储，详
     - src: 一些有用的文件
         - MVVMPattern.png: MVVM中各模块间的联系
     - lib: 引用的 js 文件
+        - axios.js: 一个基于 promise 的 HTTP 库
         - vue.js: vue.js 源码文件
+        - vue-router.js: vue.js 官方的路由管理器
     - Concept.md: 一些用到的概念 
     - hocks.html: vue 中生命周期函数的使用
     - start.html: 如何使用 Vue 的简单入门
