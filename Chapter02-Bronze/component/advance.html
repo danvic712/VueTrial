@@ -11,12 +11,91 @@
 
 <body>
     <div id="app">
+        <!-- 1、组件中 data 的使用 -->
+        <!-- <tmpl></tmpl> -->
+        <!-- <counter></counter>
+        <hr />
+        <counter></counter> -->
+
+        <!-- 2、组件中 prop 的使用 -->
+        <h4>
+            请输入需要传递给子组件的值：<input type="text" v-model="title" />
+        </h4>
+        <child-node v-bind:parenttitle="title"></child-node>
     </div>
 
+    <template id="tmpl">
+        <div>
+            <h3>这是全局组件，啊啊啊啊啊啊</h3>
+            <h4>{{name}}</h4>
+        </div>
+    </template>
+
+    <template id="counter">
+        <div>
+            <button @click="add"> Add </button>
+            <h3>count：{{count}}</h3>
+        </div>
+    </template>
+
+    <template id="child">
+        <div>
+            <h4 @click="change">Vue 实例中的属性值为：{{content}}</h4>
+        </div>
+    </template>
+
     <script>
+        Vue.component('tmpl', {
+            template: '#tmpl',
+            data: function () {
+                return {
+                    name: 'zhangsan'
+                }
+            }
+        });
+
+        var dataObj = {
+            count: 0
+        }
+
+        Vue.component('counter', {
+            template: '#counter',
+            data: function () {
+                return dataObj
+            },
+            methods: {
+                add() {
+                    dataObj.count++
+                }
+            },
+        })
+
         var vm = new Vue({
             el: '#app',
-            data: {}
+            data: {
+                title: ''
+            },
+            components: {
+                'childNode': {
+                    template: '#child',
+                    props: ['parenttitle'],
+                    data() {
+                        return {
+                            content: this.parenttitle
+                        }
+                    },
+                    watch: {
+                        parenttitle() {
+                            this.content = this.parenttitle
+                        }
+                    },
+                    methods: {
+                        change() {
+                            this.parenttitle = '9999999999999'
+                        }
+                    }
+                }
+            },
         });
     </script>
 </body>
