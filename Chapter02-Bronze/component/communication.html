@@ -10,14 +10,65 @@
 </head>
 
 <body>
-    <div id="app"></div>
+    <div id="app">
+        <h4>
+            请输入需要传递给子组件的值：<input type="text" v-model="title" />
+        </h4>
+        <h4>
+            子组件中的属性值为：{{msg}}
+        </h4>
+
+        <hr />
+
+        <child-node v-bind:parenttitle="title" @show="showMsg"></child-node>
+    </div>
 </body>
+
+<template id="child">
+    <div>
+        <h4>
+            请输入需要传递给父组件的值：<input v-model="childMsg" type="text" />
+            <button @click="func">传递数据</button>
+        </h4>
+        <h4>
+            Vue 实例中的属性值为：{{content}}
+        </h4>
+    </div>
+</template>
 
 <script>
     var vm = new Vue({
         el: '#app',
         data: {
-
+            title: '',
+            msg: '',
+        },
+        methods: {
+            showMsg(data) {
+                this.msg = data
+            }
+        },
+        components: {
+            'childNode': {
+                template: '#child',
+                props: ['parenttitle'],
+                data() {
+                    return {
+                        content: this.parenttitle,
+                        childMsg: ''
+                    }
+                },
+                watch: {
+                    parenttitle() {
+                        this.content = this.parenttitle
+                    }
+                },
+                methods: {
+                    func() {
+                        this.$emit('show', this.childMsg)
+                    }
+                },
+            }
         }
     })
 </script>
