@@ -2,22 +2,69 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Use Ref to Get Html Dom Elements</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Use Ref to Get Elements</title>
     <script src="../lib/vue.js"></script>
 </head>
 
 <body>
-    <div id="app"></div>
+    <div id="app">
+
+        <!-- 1、获取页面 DOM 元素 -->
+        <input type="text" ref="msgText" v-model="msg" />
+        <button @click="getElement">获取元素值</button>
+
+        <hr>
+
+        <!-- 2、获取子组件 -->
+        <child ref="childComponent"></child>
+    </div>
+
+    <template id="child">
+        <div>
+            <input type="datetime" name="datetime" v-model="local">
+            <button @click="getLocalData">获取当前时间</button>
+        </div>
+    </template>
 
     <script>
         var vm = new Vue({
-            el: '#app',
-            data: {},
-            methods: {},
-        })
+            el: "#app",
+            data: {
+                msg: 'Hello ref'
+            },
+            // beforeMount() {
+            //     console.log('beforeMount: ' + this.$refs.msgText.value)
+            // },
+            mounted() {
+                console.log('mounted: ' + this.$refs.msgText.value)
+            },
+            methods: {
+                getElement() {
+                    console.log('input 输入框的值为：' + this.$refs.msgText.value)
+                    this.$refs.childComponent.getLocalData()
+                    console.log('子组件 input 输入框的值为：' + this.$refs.childComponent.local)
+                }
+            },
+            components: {
+                'child': {
+                    template: '#child',
+                    data() {
+                        return {
+                            local: ''
+                        }
+                    },
+                    methods: {
+                        getLocalData() {
+                            var date = new Date()
+                            this.local = date.toLocaleString()
+                        }
+                    },
+                }
+            }
+        });
     </script>
 </body>
 
