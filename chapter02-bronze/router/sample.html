@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Router</title>
+    <script src="../../lib/vue.js"></script>
+    <script src="../../lib/vue-router.js"></script>
+    <style>
+        .container {
+            background-color: aquamarine;
+            margin-top: 20px;
+            width: 740px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- 通过 router-link 标签来生成导航链接 -->
+        <router-link to="/home">主页</router-link>
+        <router-link to="/account">账户</router-link>
+
+        <div class="container">
+            <!-- 将选中的路由渲染到 router-view 下-->
+            <router-view></router-view>
+        </div>
+    </div>
+
+    <template id="tmpl">
+        <div>
+            <h3> account page </h3>
+
+            <!-- 生成嵌套子路由地址 -->
+            <router-link to="/account/login">登录</router-link>
+            <router-link to="/account/register">注册</router-link>
+
+            <!-- 生成嵌套子路由渲染节点 -->
+            <router-view></router-view>
+        </div>
+    </template>
+
+    <script>
+        // 1、定义路由跳转的组件模板
+        const home = {
+            template: '<div> home page </div>'
+        }
+
+        const account = {
+            template: '#tmpl'
+        }
+
+        const login = {
+            template: '<div> login page</div>'
+        }
+
+        const register = {
+            template: '<div> register page</div>'
+        }
+
+        // 2、定义路由信息
+        const routes = [{
+                path: '/',
+                redirect: '/home'
+            },
+            {
+                path: '/home',
+                component: home
+            },
+            {
+                path: '/account',
+                component: account,
+                children: [{
+                        path: 'login',
+                        component: login
+                    },
+                    {
+                        path: 'register',
+                        component: register
+                    }
+                ]
+            }
+        ]
+
+        const router = new VueRouter({
+            //mode: 'history', //使用 history 模式还是 hash 路由模式
+            routes
+        })
+
+        // 3、挂载到当前 Vue 实例上
+        const vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {},
+            router: router
+        });
+    </script>
+</body>
+
+</html>
