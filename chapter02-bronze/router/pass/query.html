@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Query Pass</title>
+    <script src="../../../lib/vue.js"></script>
+    <script src="../../../lib/vue-router.js"></script>
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+    <style>
+        body {
+            width: 100%;
+        }
+
+        .header {
+            background-color: antiquewhite;
+            height: 80px;
+        }
+
+        .sidebar {
+            background-color: azure;
+            height: 400px;
+        }
+
+        .main {
+            background-color: lavenderblush;
+            height: 400px;
+        }
+
+        li {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="container-fluid">
+    <div id="app">
+        <div class="row">
+            <div class="col">
+                <router-view></router-view>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 sidebar">
+                <router-view name="sidebar"></router-view>
+            </div>
+            <div class="col-sm-10 main">
+                <router-view name="main"></router-view>
+            </div>
+        </div>
+    </div>
+
+    <template id="sidebar">
+        <div>
+            <ul>
+                <router-link v-for="(item,index) in menu" :key="index" :to="item.url" tag="li">{{item.name}}
+                </router-link>
+            </ul>
+        </div>
+    </template>
+
+    <template id="main">
+        <div>
+            <router-view> </router-view>
+        </div>
+    </template>
+
+    <template id="form">
+        <div>
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="Enter email" v-model="email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+                        v-model="password">
+                </div>
+                <button type="submit" class="btn btn-primary" @click="submit">Submit</button>
+            </form>
+        </div>
+    </template>
+
+    <template id="info">
+        <div class="card" style="margin-top: 5px;">
+            <div class="card-header">
+                输入的信息
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <p>Email Address：{{ $route.query.email }} </p>
+                    <p>Password：{{ $route.query.password }}</p>
+                    <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+    </template>
+
+    <script>
+        // 1、定义路由跳转的组件模板
+        const header = {
+            template: '<div class="header"> header </div>'
+        }
+
+        const sidebar = {
+            template: '#sidebar',
+            data() {
+                return {
+                    menu: [{
+                        name: 'Form',
+                        url: '/form'
+                    }, {
+                        name: 'Info',
+                        url: '/info'
+                    }]
+                }
+            },
+        }
+
+        const main = {
+            template: '#main'
+        }
+
+        const form = {
+            template: '#form',
+            data() {
+                return {
+                    email: '',
+                    password: ''
+                }
+            },
+            methods: {
+                submit() {
+                    this.$router.push({
+                        path: '/info?email=' + this.email + '&password=' + this.password
+                    })
+                }
+            },
+        }
+
+        const info = {
+            template: '#info'
+        }
+
+        // 2、定义路由信息
+        const routes = [{
+            path: '/',
+            components: {
+                default: header,
+                sidebar: sidebar,
+                main: main
+            },
+            children: [{
+                path: '',
+                redirect: 'form'
+            }, {
+                path: 'form',
+                component: form
+            }, {
+                path: 'info',
+                component: info
+            }]
+        }]
+
+        const router = new VueRouter({
+            //mode: 'history', //使用 history 模式还是 hash 路由模式
+            routes
+        })
+
+        // 3、挂载到当前 Vue 实例上
+        const vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {},
+            router: router
+        });
+    </script>
+</body>
+
+</html>
