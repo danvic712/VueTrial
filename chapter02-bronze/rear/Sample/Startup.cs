@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Cors.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using Sample.Services.User;
 using Swashbuckle.AspNetCore.Swagger;
+using System;
+using System.IO;
+using System.Linq;
 
 namespace Sample
 {
@@ -34,6 +31,12 @@ namespace Sample
                 // 添加跨域请求过滤器
                 options => options.Filters.Add(new CorsAuthorizationFilterFactory(_defaultCorsPolicyName))
             ).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            // 使用小写路由
+            services.AddRouting(options =>
+            {
+                options.LowercaseUrls = true;
+            });
 
             // 配置跨域请求访问策略
             services.AddCors(options => options.AddPolicy(_defaultCorsPolicyName,
@@ -66,6 +69,9 @@ namespace Sample
                 var dtoPath = Path.Combine(basePath, "Sample.xml");
                 s.IncludeXmlComments(dtoPath, true);
             });
+
+            // 依赖注入
+            services.AddTransient<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -82,7 +88,7 @@ namespace Sample
             app.UseSwagger();
             app.UseSwaggerUI(s =>
             {
-                s.SwaggerEndpoint("/swagger/v1/swagger.json", "Swagger API V1.0");
+                s.SwaggerEndpoint("/swagger/v1/swagger.json", "Sample API V1.0");
             });
         }
     }

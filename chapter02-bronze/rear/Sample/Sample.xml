@@ -4,37 +4,140 @@
         <name>Sample</name>
     </assembly>
     <members>
-        <member name="M:Sample.Controllers.ValuesController.Get">
+        <member name="F:Sample.Controllers.UserController._user">
             <summary>
-            GET api/values
+            功能接口
+            </summary>
+        </member>
+        <member name="M:Sample.Controllers.UserController.#ctor(Sample.Services.User.IUserService)">
+            <summary>
+            ctor
+            </summary>
+            <param name="user">接口实例</param>
+        </member>
+        <member name="M:Sample.Controllers.UserController.Get">
+            <summary>
+            获取所有的用户信息
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Sample.Controllers.ValuesController.Get(System.Int32)">
+        <member name="M:Sample.Controllers.UserController.Get(System.String,System.String,System.String)">
             <summary>
-            GET api/values/5
+            根据用户信息搜索用户
             </summary>
-            <param name="id">id</param>
+            <param name="id">用户编号</param>
+            <param name="name">姓名</param>
+            <param name="email">电子邮箱</param>
             <returns></returns>
         </member>
-        <member name="M:Sample.Controllers.ValuesController.Post(System.String)">
+        <member name="M:Sample.Controllers.UserController.Post(Sample.Models.UserViewModel)">
             <summary>
-            POST api/values
+            新增用户信息
             </summary>
-            <param name="value">value</param>
+            <param name="viewModel">用户视图模型</param>
+            <returns></returns>
         </member>
-        <member name="M:Sample.Controllers.ValuesController.Put(System.Int32,System.String)">
+        <member name="M:Sample.Controllers.UserController.Put(System.String,Sample.Models.UserViewModel)">
             <summary>
-            PUT api/values/5
+            更新用户信息
             </summary>
-            <param name="id">id</param>
-            <param name="value">value</param>
+            <param name="id">用户编号</param>
+            <param name="viewModel">用户视图模型</param>
         </member>
-        <member name="M:Sample.Controllers.ValuesController.Delete(System.Int32)">
+        <member name="M:Sample.Controllers.UserController.Delete(System.String)">
             <summary>
-            DELETE api/values/5
+            删除用户信息
             </summary>
-            <param name="id">id</param>
+            <param name="id">用户编号</param>
+        </member>
+        <member name="P:Sample.Models.UserModel.Id">
+            <summary>
+            用户编号
+            </summary>
+        </member>
+        <member name="P:Sample.Models.UserModel.Name">
+            <summary>
+            用户姓名
+            </summary>
+        </member>
+        <member name="P:Sample.Models.UserModel.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:Sample.Models.UserModel.CreatedTime">
+            <summary>
+            创建日期
+            </summary>
+        </member>
+        <member name="P:Sample.Models.UserViewModel.Id">
+            <summary>
+            用户编号
+            </summary>
+        </member>
+        <member name="P:Sample.Models.UserViewModel.Name">
+            <summary>
+            用户姓名
+            </summary>
+        </member>
+        <member name="P:Sample.Models.UserViewModel.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:Sample.Models.UserViewModel.CreatedTime">
+            <summary>
+            创建日期
+            </summary>
+        </member>
+        <member name="M:Sample.Services.User.IUserService.GetUsers">
+            <summary>
+            获取所有的用户信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sample.Services.User.IUserService.GetUsers(System.String,System.String,System.String)">
+            <summary>
+            根据用户信息搜索用户
+            </summary>
+            <param name="id">用户编号</param>
+            <param name="name">姓名</param>
+            <param name="email">电子邮箱</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sample.Services.User.IUserService.SaveUserInfo(Sample.Models.UserViewModel)">
+            <summary>
+            新增用户信息
+            </summary>
+            <param name="viewModel">用户视图模型</param>
+            <returns></returns>
+        </member>
+        <member name="P:Sample.Services.User.UserService.Users">
+            <summary>
+            数据集合
+            </summary>
+        </member>
+        <member name="M:Sample.Services.User.UserService.GetUsers">
+            <summary>
+            获取所有的用户信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sample.Services.User.UserService.GetUsers(System.String,System.String,System.String)">
+            <summary>
+            根据用户信息搜索用户
+            </summary>
+            <param name="id">用户编号</param>
+            <param name="name">姓名</param>
+            <param name="email">电子邮箱</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sample.Services.User.UserService.SaveUserInfo(Sample.Models.UserViewModel)">
+            <summary>
+            新增用户信息
+            </summary>
+            <param name="viewModel">用户视图模型</param>
+            <returns></returns>
         </member>
     </members>
 </doc>
