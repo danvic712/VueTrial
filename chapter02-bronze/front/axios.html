@@ -79,6 +79,39 @@
     </div>
 
     <script>
+        // request 请求拦截
+        axios.interceptors.request.use(function (request) {
+            // 对 request 进行拦截
+            if (true) {
+                console.log('跳转到登录页面')
+            }
+            return request;
+        }, function (error) {
+            // 在错误请求时进行操作
+            return Promise.reject(error);
+        });
+
+        // response 请求拦截
+        axios.interceptors.response.use(function (response) {
+            // 对 response 进行拦截
+            switch (response.status) {
+                case 200:
+                    console.log('接口访问成功')
+                    break
+                case 400:
+                    console.log('提示错误信息')
+                    break
+                case 401:
+                    console.log('重定向到登录页面')
+                    break
+            }
+
+            return response;
+        }, function (error) {
+            // 在错误请求时进行操作
+            return Promise.reject(error);
+        });
+
         var vm = new Vue({
             el: '#app',
             data: {
